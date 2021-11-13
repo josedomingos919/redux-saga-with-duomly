@@ -7,7 +7,7 @@ const Card = ({ user = {} }) => {
     <div className="card">
       <h1>Nome: {name}</h1>
       <h2>Empresa: {company?.name}</h2>
-      <h3>Nome: {company?.catchPhrase}</h3>
+      <h3>Texto: {company?.catchPhrase}</h3>
     </div>
   )
 }
