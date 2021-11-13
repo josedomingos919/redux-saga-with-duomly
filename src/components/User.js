@@ -5,7 +5,7 @@ import Card from './Card'
 
 const User = () => {
   const dispatch = useDispatch()
-  const userData = useSelector((state) => state.users.user)
+  const userData = useSelector((state) => state.users.users)
 
   useEffect(() => {
     dispatch(
@@ -25,10 +25,10 @@ const User = () => {
 
   return (
     <>
-      <h1>Apresentando:</h1>
+      <h1 className="title">Apresentando:</h1>
       <div>
         {userData?.map((item, index) => <Card user={item} key={index} />) || (
-          <>Sem dados</>
+          <p>Sem dados</p>
         )}
       </div>
     </>
