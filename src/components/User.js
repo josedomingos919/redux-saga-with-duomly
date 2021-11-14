@@ -6,31 +6,22 @@ import Card from './Card'
 const User = () => {
   const dispatch = useDispatch()
   const userData = useSelector((state) => state.users.users)
+  const loading = useSelector((state) => state.users.loading)
+  const error = useSelector((state) => state.users.error)
 
   useEffect(() => {
-    dispatch(
-      getUsers([
-        {
-          id: 1,
-          name: 'Helena',
-          company: {
-            name: 'Rest Ndonge',
-            catchPhrase:
-              'Prestação de serviço na área de desenvolvimento web!..',
-          },
-        },
-      ]),
-    )
+    dispatch(getUsers())
   }, [])
 
   return (
     <>
-      <h1 className="title">Apresentando:</h1>
+      <h1 className="title">{loading ? 'Carregando...' : 'Apresentando:'} </h1>
       <div>
         {userData?.map((item, index) => <Card user={item} key={index} />) || (
           <p>Sem dados</p>
         )}
       </div>
+      <p> {error && error} </p>
     </>
   )
 }
