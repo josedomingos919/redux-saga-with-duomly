@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Card = ({ user = {} }) => {
-  const { title = '', id, completed, name = '', company = {} } = user
+  const { title = '', id, name = '', company = {} } = user
 
   return (
     <div className="card">
